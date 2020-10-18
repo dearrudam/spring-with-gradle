@@ -22,7 +22,7 @@ public class SpringWithGradleApplication {
 class HelloController {
 
     @GetMapping(produces = { MediaType.TEXT_PLAIN_VALUE })
-    public String hello(@RequestParam("name") String name) {
+    public String hello(@RequestParam(name = "name", defaultValue = "unknown") String name) {
         return String.format("Hello, %s",name);
     }
 
@@ -33,7 +33,7 @@ class HelloController {
 class ByeController {
 
     @GetMapping(produces = { MediaType.TEXT_PLAIN_VALUE })
-    public String hello(@RequestParam(name = "name", defaultValue = "unknow") String name) {
+    public String hello(@RequestParam(name = "name", defaultValue = "unknown") String name) {
         return String.format("Bye, %s",name);
     }
 
