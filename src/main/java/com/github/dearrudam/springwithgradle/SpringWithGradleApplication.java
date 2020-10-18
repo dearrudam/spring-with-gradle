@@ -27,3 +27,14 @@ class HelloController {
     }
 
 }
+
+@RestController
+@RequestMapping(path = "/bye")
+class ByeController {
+
+    @GetMapping(produces = { MediaType.TEXT_PLAIN_VALUE })
+    public String hello(@RequestParam(name = "name", defaultValue = "unknow") String name) {
+        return String.format("Bye, %s",name);
+    }
+
+}
