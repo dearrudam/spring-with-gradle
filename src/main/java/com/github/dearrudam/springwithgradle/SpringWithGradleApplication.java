@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class SpringWithGradleApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringWithGradleApplication.class, args);
-    }
+  protected SpringWithGradleApplication() {
+
+  }
+
+  public static void main(final String[] args) {
+    SpringApplication.run(SpringWithGradleApplication.class, args);
+  }
 
 }
 
@@ -21,10 +25,11 @@ public class SpringWithGradleApplication {
 @RequestMapping(path = "/hello")
 class HelloController {
 
-    @GetMapping(produces = { MediaType.TEXT_PLAIN_VALUE })
-    public String hello(@RequestParam(name = "name", defaultValue = "unknown") String name) {
-        return String.format("Hello, %s",name);
-    }
+  @GetMapping(produces = {MediaType.TEXT_PLAIN_VALUE})
+  public String hello(
+    @RequestParam(name = "name", defaultValue = "unknown") final String name) {
+    return String.format("Hello, %s", name);
+  }
 
 }
 
@@ -32,9 +37,10 @@ class HelloController {
 @RequestMapping(path = "/bye")
 class ByeController {
 
-    @GetMapping(produces = { MediaType.TEXT_PLAIN_VALUE })
-    public String hello(@RequestParam(name = "name", defaultValue = "unknown") String name) {
-        return String.format("Bye, %s",name);
-    }
+  @GetMapping(produces = {MediaType.TEXT_PLAIN_VALUE})
+  public String hello(
+    @RequestParam(name = "name", defaultValue = "unknown") final String name) {
+    return String.format("Bye, %s", name);
+  }
 
 }
